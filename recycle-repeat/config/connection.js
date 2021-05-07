@@ -11,4 +11,4 @@ const sequelize = new Sequelize("recycle", "root", "", {
     }
 });
 
-module.exports = Sequelize;
+module.exports = sequelize;
