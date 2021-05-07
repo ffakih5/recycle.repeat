@@ -1,23 +1,23 @@
 //const connection = require("../config/connection.js");
 const Score = require("../models/score.js");
 
-module.exports = (app) => {
-    //GET
-    app.get("/api/:score?", (req, res) => {
-        if (req.params.score) {
-            Score.findOne({
-                where: {
-                    score: req.params.score
+const { Op } = require('sequelize');
 
-                },
-            }).then((result) => res.json(result));
-        } else {
-            Score.findAll().then((result) => res.json(result));
-        }
+module.exports = (app) => {
+    //GET ALL SCORES
+    app.get("/api/all", (req, res) => {
+        Score.findAll({}).then((results) => res.json(results));
+    });
+    // SPECIFIC SCORE
+    app.get("/api/:score", (req, res) => {
+        Score.findAll({
+            where: {
+                email: req.params.score,
+            },
+        }).then((results) => res.json(results));
     });
 
-
-    //ADD
+    //ADD A SCORE 
     app.post("/api/new", (req, res) => {
         const score = req.body;
 
@@ -25,15 +25,18 @@ module.exports = (app) => {
             email: req.body.email,
 
         }).then((results) => res.json(results));
-
-
-        Score.create({
-            email: score.email,
-            points: score.points
-        });
-        res.status(200).json(score);
     });
-}
+
+    app.delete("/api/book:id", (req, res) => {
+        const id = req.body;
+
+        Score.destroy({
+            where: {
+                id: req.params.id,
+            },
+        }).then(() => res.end())
+    });
+};
 
 
 
