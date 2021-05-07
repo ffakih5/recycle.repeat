@@ -10,3 +10,5 @@ const sequelize = new Sequelize("recycle", "root", "", {
         idle: 10000
     }
 });
+
+module.exports = Sequelize;
