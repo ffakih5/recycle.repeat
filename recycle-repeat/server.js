@@ -1,6 +1,6 @@
 const express = require("express");
 //const mysql = require("mysql");
-const routes = require("./routes");
+const routes = require("./routes/api-routes.js");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -16,7 +16,7 @@ app.use(routes);
 
 
 //ROUTES
-require("./app/routes/api-routes.js")(app);
+//require("./routes/api-routes.js")(app);
 
 
 // START API SERVER
