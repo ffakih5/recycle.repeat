@@ -3,7 +3,7 @@ const express = require("express");
 const routes = require("./routes/api-routes.js");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 //SETUP EXPRESS APP TO HANDLE DATA PARSING- MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

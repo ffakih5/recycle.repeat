@@ -18,7 +18,11 @@
     "homepage": "https://github.com/ffakih5/recycle.repeat/#readme",
     "dependencies": {
         "express": "^4.17.1",
+        "if-env": "^1.0.4",
         "mysql2": "^2.2.5",
         "sequelize": "^6.6.2"
+    },
+    "devDependencies": {
+        "concurrently": "^6.1.0"
     }
 }
