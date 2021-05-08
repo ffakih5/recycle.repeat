@@ -21,6 +21,6 @@ app.use(routes);
 
 
 // START API SERVER
-db.sequelize.sunc().then(() => {
+db.sequelize.sync().then(() => {
     app.listen(PORT, () => console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`));
 });
