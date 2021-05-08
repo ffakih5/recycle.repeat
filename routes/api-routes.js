@@ -34,6 +34,9 @@ module.exports = (app) => {
             },
         }).then(() => res.end())
     });
+
+    //badge to be 
+    // if statement for score to be checked along with existing badge//
 };
 
 
