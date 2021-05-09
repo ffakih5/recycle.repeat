@@ -1,0 +1,1 @@
+//in here will go my JavaScript logic to increment score and badge; create new user etc"
