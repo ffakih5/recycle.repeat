@@ -48,6 +48,7 @@ module.exports = (app) => {
                 where: {
                     id: req.body.id,
                 },
+                //change to email as that's whats independent
             }
         ).then((dbScore) => res.json(dbScore));
     });
