@@ -21,10 +21,11 @@ module.exports = (app) => {
     app.post("/api/score", (req, res) => {
         const score = req.body;
 
-        Model.Score.create({
-            email: req.body.email,
+        Model.Score.create(
+            {
+                email: req.body.email,
 
-        }).then((results) => res.json(results));
+            }).then((results) => res.json(results));
     });
 
     app.delete("/api/score:id", (req, res) => {
@@ -35,6 +36,20 @@ module.exports = (app) => {
                 id: req.params.id,
             },
         }).then(() => res.end())
+    });
+
+    app.put("/api/score", (req, res) => {
+        db.Score.update(
+            {
+                score: req.body.score,
+
+            },
+            {
+                where: {
+                    id: req.body.id,
+                },
+            }
+        ).then((dbScore) => res.json(dbScore));
     });
 
     //badge to be 
