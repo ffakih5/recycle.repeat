@@ -24,6 +24,8 @@ module.exports = (app) => {
         db.Score.create(
             {
                 email: req.body.email,
+                score: req.body.score,
+                current_badge: req.body.current_badge
 
             }).then((results) => res.json(results));
     });
