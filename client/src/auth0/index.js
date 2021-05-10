@@ -20,12 +20,23 @@ return(
   //document.getElementById('app')
 );
 
+/*FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+*/
 
 const {
     isLoading, 
     isAuthenticated,
     error,
-    user,
     loginWithRedirect,
     logout,
   } = useAuth0();
+
+  return  {
+    isLoading, 
+    isAuthenticated,
+    error,
+    loginWithRedirect,
+    logout,
+  } 
