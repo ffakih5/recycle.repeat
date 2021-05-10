@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
         currentTodo.complete = !currentTodo.complete;
         spanEl.style.textDecoration = 'line-through';
         updateTodo(currentTodo);
-        console.log('toggleComplete -> currentTodo', currentTodo);
+        console.log('toggleComplete -> currentTodo', currentScore);
     };
 
     // Function to actually put the todo on the page

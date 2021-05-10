@@ -6,6 +6,9 @@ const db = require("../models");
 module.exports = (app) => {
     //GET ALL SCORES
     app.get("/api/all", (req, res) => {
+        res.status(200).json({
+            message: "handling GET request to /api-routes"
+        })
         db.Score.findAll({}).then((results) => res.json(results));
     });
     // SPECIFIC SCORE
