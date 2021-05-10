@@ -1,5 +1,6 @@
 //const connection = require("../config/connection.js");
 //const Model = require("../config/models/model.js");
+const express = require("express");
 const db = require("../models");
 const router = express.Router();
 //replace Model with db
@@ -72,7 +73,7 @@ module.exports = (app) => {
             badge_name: req.body.badge_name,
             score: req.body.score,
             image: req.body.score
-        }).then((dbBadge) => res.json(dbBadge);
+        }).then((dbBadge) => res.json(dbBadge));
     });
 
     // DELETE route for deleting todos using the ID (req.params.id)
@@ -82,7 +83,7 @@ module.exports = (app) => {
             where: {
                 id: req.params.id,
             },
-        }).then((dbBadge) => res.json(dbBadge);
+        }).then((dbBadge) => res.json(dbBadge));
     });
 
     // PUT route for updating todos. We can get the updated todo data from req.body

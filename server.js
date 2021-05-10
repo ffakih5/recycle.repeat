@@ -13,10 +13,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-//ROUTES
-require("./routes/api-routes.js")(app);
-
-// app.js
+app.use(apiRouter);
 
 const userInViews = require('./lib/middleware/userInViews');
 const authRouter = require('./routes/auth');
