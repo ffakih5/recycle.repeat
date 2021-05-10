@@ -21,7 +21,7 @@ module.exports = (app) => {
     app.post("/api/score", (req, res) => {
         const score = req.body;
 
-        Model.Score.create(
+        db.Score.create(
             {
                 email: req.body.email,
 
