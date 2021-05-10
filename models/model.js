@@ -1,3 +1,7 @@
+//const { sequelize } = require(".");
+
+//const { DataTypes } = require("sequelize/types");
+
 module.exports(sequelize, DataTypes) => {
     const Score = sequelize.define("score",
         {
@@ -12,7 +16,11 @@ module.exports(sequelize, DataTypes) => {
                 type: DataTypes.STRING
             }
         });
+    return Score;
 
+};
+
+module.exports(sequelize, DataTypes) => {
     const Badge = sequelize.define("badge",
         {
             badge_name: DataTypes.STRING,
@@ -21,7 +29,6 @@ module.exports(sequelize, DataTypes) => {
             image: DataTypes.BLOB("long")
         });
 
-    return Score, Badge;
-
+    return Badge;
 };
 

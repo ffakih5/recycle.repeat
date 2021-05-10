@@ -1,5 +1,5 @@
 //const connection = require("../config/connection.js");
-const Model = require("../config/models/model.js");
+//const Model = require("../config/models/model.js");
 const db = require("../models");
 //replace Model with db
 

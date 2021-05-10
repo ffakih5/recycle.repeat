@@ -17,14 +17,14 @@ const Image = db.badge;
 // force: true will drop the table if it already exists
 db.sequelize.sync({ force: true }).then(() => {
     //Give any image name here.
-    var imageUrl = fs.readFileSync(__dirname + '/static/assets/images/png');
+    var imageUrl = fs.readFileSync(__dirname + '/assets/images/goldfish.png');
     Image.create({
         type: 'png',
         name: 'JSA Banner',
         data: imageUrl
     }).then(image => {
         try {
-            fs.writeFileSync(__dirname + '/static/assets/tmp/tmp-jsa-header.png', image.data);
+            fs.writeFileSync(__dirname + '/assets/images/goldfish.png', image.data);
 
             // exit node.js app
             process.exit(0);
