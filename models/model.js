@@ -1,18 +1,19 @@
 const sequelize = require("../config/connection");
 const Sequelize = require("sequelize");
+import { Sequelize };
 
 //module.exports = (sequelize, DataTypes) => {
-const Score = sequelize.define("score",
+const Score = Sequelize.define("score",
     {
         email: {
-            type: sequelize.STRING,
+            type: Sequelize.STRING,
             primaryKey: true,
         },
         score: {
-            type: sequelize.INTEGER,
+            type: Sequelize.INTEGER,
         },
         current_badge: {
-            type: sequelize.STRING
+            type: Sequelize.STRING
         },
 
     });
@@ -20,10 +21,10 @@ Score.sync();
 
 const Badge = sequelize.define("badge",
     {
-        badge_name: sequelize.STRING,
+        badge_name: Sequelize.STRING,
         primaryKey: true,
-        score: sequelize.INTEGER,
-        image: sequelize.BLOB("long")
+        score: Sequelize.INTEGER,
+        image: Sequelize.BLOB("long")
     });
 
 Badge.sync();
