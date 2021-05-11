@@ -1,6 +1,6 @@
 
 const express = require('express');
-const secured = require('../lib/middleware/secured');
+const secured = require('../middleware/secured');
 const router = express.Router();
 
 /* GET user profile. */

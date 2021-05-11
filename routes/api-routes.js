@@ -1,11 +1,12 @@
 //const connection = require("../config/connection.js");
 //const Model = require("../config/models/model.js");
 const express = require("express");
+const fs = require("fs");
 const db = require("../models");
 const router = express.Router();
 //replace Model with db
 
-module.exports = (app) => {
+module.exports = (router) => {
     //GET ALL SCORES
     router.get("/api/all", (req, res) => {
         res.status(200).json({

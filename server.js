@@ -1,5 +1,6 @@
 const express = require("express");
 const apiRouter = require("./routes/api-routes.js");
+const db = require("./models");
 
 
 const app = express();
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(apiRouter);
 
-const userInViews = require('./lib/middleware/userInViews');
+const userInViews = require('./middleware/userInViews');
 const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -27,7 +28,6 @@ app.use('/', indexRouter);
 app.use('/', usersRouter);
 // ..
 
-const db = require("./models");
 // START API SERVER
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`));
