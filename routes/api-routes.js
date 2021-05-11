@@ -104,6 +104,29 @@ module.exports = (router) => {
     });
 
 
+    //const Image = db.badge;
+    //const db = require("../models");
+    // force: true will drop the table if it already exists
+    /*db.sequelize.sync({ force: true }).then(() => {
+        //Give any image name here.
+        const imageUrl = fs.readFileSync(__dirname + '/assets/images/goldfish.png');
+        Image.create({
+            type: 'png',
+            name: 'JSA Banner',
+            data: imageUrl
+        }).then(image => {
+            try {
+                fs.writeFileSync(__dirname + '/assets/images/goldfish.png', image.data);
+
+                // exit node.js app
+                process.exit(0);
+            } catch (e) {
+                console.log(e);
+            }
+        })
+    });
+*/
+
     //badge to be 
     // if statement for score to be checked along with existing badge//
 };
