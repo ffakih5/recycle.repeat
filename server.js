@@ -1,6 +1,6 @@
 const express = require("express");
 const apiRouter = require("./routes/api-routes.js");
-const db = require("./models");
+const sequelize = require("./config/connection");
 
 
 const app = express();
@@ -29,7 +29,7 @@ app.use('/', usersRouter);
 // ..
 
 // START API SERVER
-db.sequelize.sync().then(() => {
+sequelize.sync().then(() => {
     app.listen(PORT, () => console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`));
 });
 

@@ -1,33 +1,39 @@
-const sequelize = require("../config/connection");
-const Sequelize = require("sequelize");
-import { Sequelize };
+const { Sequelize, DataTypes } = require("sequelize");
 
-//module.exports = (sequelize, DataTypes) => {
-const Score = Sequelize.define("score",
+const sequelize = require("../config/connection.js");
+
+const Score = sequelize.define("score",
     {
         email: {
-            type: Sequelize.STRING,
-            primaryKey: true,
+            type: DataTypes.STRING,
+            primaryKey: true
         },
         score: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER
         },
         current_badge: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
 
-    });
-Score.sync();
+    },
 
+);
 const Badge = sequelize.define("badge",
     {
-        badge_name: Sequelize.STRING,
-        primaryKey: true,
-        score: Sequelize.INTEGER,
-        image: Sequelize.BLOB("long")
-    });
+        badge_name: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
+        score: {
+            type: DataTypes.INTEGER
+        },
+        image: {
+            type: DataTypes.BLOB
+        },
 
+    },
+
+);
+Score.sync();
 Badge.sync();
-
-//};
-module.exports = Score, Badge;
+module.exports = { Score, Badge };
