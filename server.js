@@ -1,7 +1,6 @@
 const express = require("express");
 const apiRouter = require("./routes/api-routes.js");
 const sequelize = require("./config/connection");
-const passport = require("passport");
 
 const app = express();
 // Load environment variables from .env
@@ -28,11 +27,12 @@ const strategy = new Auth0Strategy(
         return done(null, profile);
     }
 );
-
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 passport.use(strategy);
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.set("view engine", "pug");
 
 // You can use this section to keep a smaller payload
 passport.serializeUser(function (user, done) {

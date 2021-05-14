@@ -48,8 +48,10 @@ router.get('/logout', (req, res) => {
         returnTo: returnTo
     });
     logoutURL.search = searchString;
+    console.log(logoutURL);
 
     res.redirect(logoutURL);
+
 });
 
 module.exports = router;
