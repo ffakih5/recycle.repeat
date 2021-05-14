@@ -16,6 +16,9 @@ const Score = sequelize.define("score",
         },
 
     },
+    {
+        freezeTableName: true
+    }
 
 );
 const Badge = sequelize.define("badge",
@@ -28,12 +31,18 @@ const Badge = sequelize.define("badge",
             type: DataTypes.INTEGER
         },
         image: {
-            type: DataTypes.BLOB
+            type: DataTypes.STRING
         },
 
+
     },
+    {
+        freezeTableName: true
+    }
 
 );
 Score.sync();
 Badge.sync();
-module.exports = { Score, Badge };
+module.exports = {
+    Score: Score, Badge: Badge
+}

@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-app.use(apiRouter);
+app.use('/', apiRouter);
 
 const userInViews = require('./middleware/userInViews');
 const authRouter = require('./routes/auth');
