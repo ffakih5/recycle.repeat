@@ -4,7 +4,7 @@ const sequelize = require("./config/connection");
 
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 //SETUP EXPRESS APP TO HANDLE DATA PARSING- MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
