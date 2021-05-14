@@ -1,27 +1,36 @@
 import React, { useState } from "react";
 import { Text, StyleSheet } from "react-native";
-import Background from "/image/recyle.png";
+import recycle from "../assets/image/recycle.png"
 
 
 
 function Home(props) {
-    const [titleText, setTitleText] = useState("Recyle Repeat");
+    const [titleText, setTitleText] = useState("Recycle Repeat");
     const bodyText = useState("Thank you for choosing to help out mother earth by recycling waste");
 
     const onPressTitle = () => {
-        setTitleText("Recycle Repeat [pressed]");
+        setTitleText("YOU ARE A HERO!");
       };
     return(
         <div>
-            <img src={ Background } />
     <Text style={styles.baseText}>
       <Text style={styles.titleText} onPress={onPressTitle}>
         {titleText}
         {"\n"}
-        {"\n"}
+        <div>
+        <img src={ recycle } alt="recycle-image"/>
+        </div>
       </Text>
       <Text numberOfLines={5}>{bodyText}</Text>
     </Text>
+    <div>
+    <p>
+                                recycle repeat is the place you can come and record the good you have done to then share with the world.
+                                </p>
+                                <p>
+                               Record the rubbish you have collected, earn points and share with your friends!
+                                </p>
+    </div>
         </div>
     )
 }
