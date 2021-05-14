@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Text, StyleSheet } from "react-native";
+import Background from "/image/recyle.png";
+
+
 
 function Home(props) {
     const [titleText, setTitleText] = useState("Recyle Repeat");
@@ -8,9 +11,9 @@ function Home(props) {
     const onPressTitle = () => {
         setTitleText("Recycle Repeat [pressed]");
       };
-    return (
+    return(
         <div>
-           return (
+            <img src={ Background } />
     <Text style={styles.baseText}>
       <Text style={styles.titleText} onPress={onPressTitle}>
         {titleText}
@@ -19,9 +22,6 @@ function Home(props) {
       </Text>
       <Text numberOfLines={5}>{bodyText}</Text>
     </Text>
-  );
-
-
         </div>
     )
 }
