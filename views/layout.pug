@@ -1,19 +1,9 @@
-nav
-  navbar-default 
-  div
-    h1 My Website!
-    img(src='../assets/image/recycle.png')
-  ul
-    li
-      a(href="/") Home
-    li
-      a(href="/input") Record
-    li
-      a Page 2
 body
   a(href="/") Home
   if locals.user
+    br
     a(href="/user") Profile
+    br
     a(href="/logout") Log Out
   else
     a(href="/login") Log In
