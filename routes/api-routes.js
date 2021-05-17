@@ -5,6 +5,64 @@ const fs = require("fs");
 const db = require("../models/model");
 const router = express.Router();
 
+router.post('/api/score', (req, res) => {
+    req.user = { email: "me@mail" }
+    const email = req.user.email;
+    const score = req.body.score;
+    console.log(email, score);
+    db.Score.findAll({
+        where: {
+            email: email
+        },
+    }).then((dbScore) => {
+        let newScore;
+        if (dbScore.length === 0) {
+            db.Score.create(
+                {
+                    email: email,
+                    score: score,
+                    current_badge: null
+                }
+
+            );
+            newScore = score;
+        } else {
+            newScore = score + dbScore[0].dataValues.score
+            db.Score.update(
+                {
+                    score: newScore
+
+                },
+                {
+                    where: {
+                        email: email
+                    },
+                },
+            );
+        }
+        let newBadge;
+        db.Badge.findAll({
+            order: [
+                ['score', 'ASC']
+            ]
+        }).then((dbBadge) => {
+            dbBadge.map((e) => {
+                if (newScore > e.dataValues.score) {
+                    newBadge = e.dataValues.badge_name
+                }
+            })
+            res.json(
+                {
+                    score: newScore,
+                    badge: newBadge,
+                }
+            )
+        });
+    });
+});
+
+
+/*
 //GET ALL SCORES
 router.get("/api/all", (req, res) => {
     res.status(200).json({
@@ -13,43 +71,38 @@ router.get("/api/all", (req, res) => {
     db.Score.findAll({}).then((dbScore) => res.json(dbScore));
 });
 // SPECIFIC SCORE
-
+ 
 router.get('/api/:score', (req, res) => {
-    db.Score.findAll({
-        where: {
-            email: req.params.score,
-        },
-    }).then((dbScore) => res.json(dbScore));
-});
-
+    
+ 
 //ADD A SCORE 
 router.post('/api/score', (req, res) => {
     const score = req.body;
-
+ 
     db.Score.create(
         {
             email: req.body.email,
             score: req.body.score,
             current_badge: req.body.current_badge
-
+ 
         }).then((results) => res.json(results));
 });
-
+ 
 router.delete('/api/score:id', (req, res) => {
     const id = req.body;
-
+ 
     db.Score.destroy({
         where: {
             id: req.params.id,
         },
     }).then(() => res.end())
 });
-
+ 
 router.put("/api/score", (req, res) => {
     db.Score.update(
         {
             score: req.body.score,
-
+ 
         },
         {
             where: {
@@ -58,17 +111,19 @@ router.put("/api/score", (req, res) => {
             //change to email as that's whats independent
         }
     ).then((dbScore) => res.json(dbScore));
-
+ 
 });
-
+ 
+router.post("/api/score", (req,res))
+ 
 //let piecesCollected;
 //let score;
 //let badge;
 //score = piecesCollected;
 //badge = score/10; // for every score of 10 , 1 bade, score = 25 will result in 2 badges
-
+ 
 /*const scoreBadge(){
-
+ 
 scoreList = []
 for (i = 0; i < scoreList; i++);
 const badge = {
@@ -78,22 +133,18 @@ const badge = {
     'whale',
 }
 return badge;
-
+ 
 if (score >= 50,
     badge = goldfish)
 else if (score >= 100, badge = octopus);
 else if (score >= 150. badge = seahorse);
 else (score >= 200, badge = whale);
-
+ 
 if*/
 
 
-router.get('/api/badge', (req, res) => {
-    console.log("somestring");
-    // findAll returns all entries for a table when used with no options
-    db.Badge.findAll({}).then((dbBadge) => res.json(dbBadge));
-});
 
+/*
 router.post('/api/badge', (req, res) => {
     const badge = req.body;
     db.Badge.create({
@@ -102,7 +153,7 @@ router.post('/api/badge', (req, res) => {
         image: req.body.score
     }).then((dbBadge) => res.json(dbBadge));
 });
-
+ 
 router.delete('/api/badge/:id', (req, res) => {
     // We just have to specify which todo we want to destroy with "where"
     db.Badge.destroy({
@@ -111,7 +162,7 @@ router.delete('/api/badge/:id', (req, res) => {
         },
     }).then((dbBadge) => res.json(dbBadge));
 });
-
+ 
 router.put('/api/badge', (req, res) => {
     db.Badge.update(
         {
@@ -128,24 +179,24 @@ router.put('/api/badge', (req, res) => {
 });
 //replace Model with db
 /*
-
+ 
 /
-
+ 
 router.get('/api/badge', (req, res) => {
     console.log("somestring");
     // findAll returns all entries for a table when used with no options
     db.Badge.findAll({}).then((dbBadge) => res.json(dbBadge));
 });
-
+ 
 // POST route for saving a new todo
-
+ 
 // DELETE route for deleting todos using the ID (req.params.id)
-
-
+ 
+ 
 // PUT route for updating todos. We can get the updated todo data from req.body
-
-
-
+ 
+ 
+ 
 //const Image = db.badge;
 //const db = require("../models");
 // force: true will drop the table if it already exists
@@ -159,7 +210,7 @@ router.get('/api/badge', (req, res) => {
     }).then(image => {
         try {
             fs.writeFileSync(__dirname + '/assets/images/goldfish.png', image.data);
-
+ 
             // exit node.js app
             process.exit(0);
         } catch (e) {
