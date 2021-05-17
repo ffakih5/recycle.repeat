@@ -67,7 +67,8 @@ router.put("/api/score", (req, res) => {
 //score = piecesCollected;
 //badge = score/10; // for every score of 10 , 1 bade, score = 25 will result in 2 badges
 
-/*const scoreBadge()
+/*const scoreBadge(){
+
 scoreList = []
 for (i = 0; i < scoreList; i++);
 const badge = {
