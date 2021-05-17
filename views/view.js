@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
             .then((response) => response.json())
             .then((data) => {
                 console.log('Success in getting scores:', data);
-                todos = data;
+                score = data;
                 initializeRows();
             });
     };

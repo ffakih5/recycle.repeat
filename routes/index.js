@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Recycle Repeat', img: 'client/src/assets/image/recycle.png' });
+    res.render('index', { title: 'Recycle Repeat', img: 'image/recycle.png' });
 });
 
 module.exports = router;
