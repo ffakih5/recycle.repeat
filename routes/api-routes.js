@@ -5,31 +5,25 @@ const fs = require("fs");
 const db = require("../models/model");
 const router = express.Router();
 
-router.get('/api/badge', (req, res) => {
-    console.log("somestring");
-    // findAll returns all entries for a table when used with no options
-    db.Badge.findAll({}).then((dbBadge) => res.json(dbBadge));
-});
-//replace Model with db
-/*
 //GET ALL SCORES
 router.get("/api/all", (req, res) => {
     res.status(200).json({
         message: "handling GET request to /api-routes"
     })
-    db.Score.findAll({}).then((results) => res.json(results));
+    db.Score.findAll({}).then((dbScore) => res.json(dbScore));
 });
 // SPECIFIC SCORE
-router.get("/api/:score", (req, res) => {
-    Model.Score.findAll({
+
+router.get('/api/:score', (req, res) => {
+    db.Score.findAll({
         where: {
             email: req.params.score,
         },
-    }).then((results) => res.json(results));
+    }).then((dbScore) => res.json(dbScore));
 });
 
 //ADD A SCORE 
-router.post("/api/score", (req, res) => {
+router.post('/api/score', (req, res) => {
     const score = req.body;
 
     db.Score.create(
@@ -41,10 +35,10 @@ router.post("/api/score", (req, res) => {
         }).then((results) => res.json(results));
 });
 
-router.delete("/api/score:id", (req, res) => {
+router.delete('/api/score:id', (req, res) => {
     const id = req.body;
 
-    Model.Score.destroy({
+    db.Score.destroy({
         where: {
             id: req.params.id,
         },
@@ -67,6 +61,31 @@ router.put("/api/score", (req, res) => {
 
 });
 
+//let piecesCollected;
+//let score;
+//let badge;
+//score = piecesCollected;
+//badge = score/10; // for every score of 10 , 1 bade, score = 25 will result in 2 badges
+
+/*const scoreBadge()
+scoreList = []
+for (i = 0; i < scoreList; i++);
+const badge = {
+    'goldfish',
+    'octopus',
+    'seahorse',
+    'whale',
+}
+return badge;
+
+if (score >= 50,
+    badge = goldfish)
+else if (score >= 100, badge = octopus);
+else if (score >= 150. badge = seahorse);
+else (score >= 200, badge = whale);
+
+if*/
+
 
 router.get('/api/badge', (req, res) => {
     console.log("somestring");
@@ -74,7 +93,6 @@ router.get('/api/badge', (req, res) => {
     db.Badge.findAll({}).then((dbBadge) => res.json(dbBadge));
 });
 
-// POST route for saving a new todo
 router.post('/api/badge', (req, res) => {
     const badge = req.body;
     db.Badge.create({
@@ -84,7 +102,6 @@ router.post('/api/badge', (req, res) => {
     }).then((dbBadge) => res.json(dbBadge));
 });
 
-// DELETE route for deleting todos using the ID (req.params.id)
 router.delete('/api/badge/:id', (req, res) => {
     // We just have to specify which todo we want to destroy with "where"
     db.Badge.destroy({
@@ -94,7 +111,6 @@ router.delete('/api/badge/:id', (req, res) => {
     }).then((dbBadge) => res.json(dbBadge));
 });
 
-// PUT route for updating todos. We can get the updated todo data from req.body
 router.put('/api/badge', (req, res) => {
     db.Badge.update(
         {
@@ -109,6 +125,24 @@ router.put('/api/badge', (req, res) => {
         }
     ).then((dbBadge) => res.json(dbBadge));
 });
+//replace Model with db
+/*
+
+/
+
+router.get('/api/badge', (req, res) => {
+    console.log("somestring");
+    // findAll returns all entries for a table when used with no options
+    db.Badge.findAll({}).then((dbBadge) => res.json(dbBadge));
+});
+
+// POST route for saving a new todo
+
+// DELETE route for deleting todos using the ID (req.params.id)
+
+
+// PUT route for updating todos. We can get the updated todo data from req.body
+
 
 
 //const Image = db.badge;

@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Recycle Repeat' });
+router.get('/input', function (req, res, next) {
+    res.render('input');
 });
 
 module.exports = router;

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     };*/
 
     // Helper function to grab todos
-    const getScore = () => {
+    const getScores = () => {
         fetch('/api/score', {
             method: 'GET',
             headers: {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
             });
     };
 
-    getScore();
+    getScores();
 
     // Helper function to delete a todo
     const deleteScore = (e) => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-        }).then(getScore);
+        }).then(getScores);
     };
 
     // Function to handle the editing of a todo when input is clicked
@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', (e) => {
     };
 
     // Update a todo (PUT)
-    const updateTodo = (todo) => {
-        console.log('attempting to update with', todo);
-        fetch('/api/todos', {
+    const updateScore = (score) => {
+        console.log('attempting to update with', score);
+        fetch('/api/score', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(todo),
+            body: JSON.stringify(score),
         }).then((response) => console.log(response));
     };
 
@@ -111,17 +111,17 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const finishEdit = (e) => {
         if (e.keyCode === 13) {
             const itemParent = e.target.parentElement;
-            const updatedTodo = {
+            const updatedScore = {
                 text: e.target.value.trim(),
                 completed: false,
                 id: e.target.dataset.id,
             };
 
             // Update the text in the dom
-            itemParent.childNodes[0].innerText = updatedTodo.text;
+            itemParent.childNodes[0].innerText = updatedScore.text;
 
             // Call on our helper function to preform a PUT request
-            updateTodo(updatedTodo);
+            updateTodo(updatedScore);
 
             if (itemParent) {
                 for (let i = 0; i < itemParent.children.length; i++) {
@@ -203,23 +203,24 @@ document.addEventListener('DOMContentLoaded', (e) => {
     };
 
     // Function to actually put the todo on the page
-    const insertTodo = (e) => {
+    const insertScore = (e) => {
         e.preventDefault();
         const score = {
-            text: document.getElementById('newScore').value.trim(),
-            complete: false,
-        };
-        if (score.text) {
-            fetch('/api/score', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(score),
-            })
-                .then((response) => response.json())
-                .then(() => getScore());
-        }
+            email: ,
+            score: document.getElementById('newScore').value.trim(),
+            current- badge:
     };
-    scoreForm.addEventListener('submit', insertScore);
+    if (score.email) {
+        fetch('/api/score', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(score),
+        })
+            .then((response) => response.json())
+            .then(() => getScore());
+    }
+};
+scoreForm.addEventListener('submit', insertScore);
 });
