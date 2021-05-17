@@ -11,13 +11,12 @@ router.get('/user', secured(), function (req, res, next) {
         userProfile: JSON.stringify(userProfile, null, 2), //current badge.
         title: 'Profile page'
     });
-    /*router.use(function(req, res) {
-  console.log("no route hit")
-  res.sendFile(path.join(__dirname, "../client/public/index.html"));
-});
-*/
+    router.use(function (req, res) {
+        console.log("no route hit")
+        res.sendFile(path.join(__dirname, "../client/public/index.html"));
+    });
 
-    router.get('/user', (req, res) => {
+    router.get('/user-id', (req, res) => {
         res.send(req.user)
     });
 });

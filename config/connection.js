@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 
 
-const sequelize = new Sequelize("recycle", "root", "", {
+const sequelize = new Sequelize("recycle", "root", "myRootPassword", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
