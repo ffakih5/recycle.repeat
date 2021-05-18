@@ -1,4 +1,5 @@
 const express = require("express");
+const exphbs = require('express-handlebars')
 const apiRouter = require("./routes/api-routes.js");
 const sequelize = require("./config/connection");
 
@@ -33,9 +34,7 @@ passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
-
+app.set("view engine", "handlebars");
 
 // You can use this section to keep a smaller payload
 passport.serializeUser(function (user, done) {
