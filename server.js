@@ -18,7 +18,7 @@ const strategy = new Auth0Strategy(
         clientID: process.env.AUTH0_CLIENT_ID,
         clientSecret: process.env.AUTH0_CLIENT_SECRET,
         callbackURL:
-            process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+            process.env.AUTH0_CALLBACK_URL || 'http://localhost:3001/callback'
     },
     function (accessToken, refreshToken, extraParams, profile, done) {
         // accessToken is the token to call Auth0 API (not needed in the most cases)
@@ -42,7 +42,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
     done(null, user);
 });
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 //SETUP EXPRESS APP TO HANDLE DATA PARSING- MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));

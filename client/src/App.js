@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Record from "./pages/Record";
 import Results from "./pages/Results";
 import Share from "./pages/Share";
 
