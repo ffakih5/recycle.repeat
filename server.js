@@ -32,7 +32,10 @@ passport.use(strategy);
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.set("view engine", "pug");
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+
 
 // You can use this section to keep a smaller payload
 passport.serializeUser(function (user, done) {
