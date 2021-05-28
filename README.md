@@ -23,3 +23,5 @@ To start up React page:
 
 To start up Node server: 
 - Run _node server.js_
+
+Test backend API using CURL.
