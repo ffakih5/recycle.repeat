@@ -9,7 +9,7 @@ router.post('/api/score', (req, res) => {
     req.user = { email: "me@mail" }
     const email = req.user.email;
     const score = req.body.score;
-    console.log(email, score);
+    console.log("Yay!", email, "You scored", score);
     db.Score.findAll({
         where: {
             email: email
