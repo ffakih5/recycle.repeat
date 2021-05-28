@@ -15,3 +15,10 @@ A simple and easy to navigate application designed with the intention to inspire
 - MySQL2
 - Sequelize 
 - Passport
+
+## How To
+
+To start up React page: 
+- Run _npm start_
+To start up Node server: 
+- Run _node server.js_
