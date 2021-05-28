@@ -15,6 +15,7 @@ A simple and easy to navigate application designed with the intention to inspire
 - MySQL2
 - Sequelize 
 - Passport
+- React
 
 ## How To
 
