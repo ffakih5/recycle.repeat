@@ -1,0 +1,31 @@
+<html>
+
+<body>
+    {{#block "header"}}
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills float-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home <span class="sr-only"> (current)</span></a>
+                    </li>
+                    {{#if locals.user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </nav>
+
+            {{/block}}
+
+</body>
+
+</html>

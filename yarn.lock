@@ -688,6 +688,11 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.6.tgz"
   "version" "4.2.6"
 
+"handlebars-layouts@^3.1.4":
+  "integrity" "sha1-JrO+uTG0uHffv35v6vQFjuYiiwI="
+  "resolved" "https://registry.npmjs.org/handlebars-layouts/-/handlebars-layouts-3.1.4.tgz"
+  "version" "3.1.4"
+
 "handlebars@^4.7.7":
   "integrity" "sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA=="
   "resolved" "https://registry.npmjs.org/handlebars/-/handlebars-4.7.7.tgz"
