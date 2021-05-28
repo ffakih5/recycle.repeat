@@ -1,0 +1,1 @@
+INSERT INTO recycle.badge values('turle', 10, '', now(), now(),'goldfish', 20, '', now(), now(),'whale', 30, '', now(), now(), 'octopus', 40, '', now(), now(),'dolphin', 50, '', now(), now(),'shark', 100, '', now(), now(),);
